@@ -18,7 +18,7 @@ except ImportError:
 
 
 token = os.environ["token"]
-bot = commands.Bot(command_prefix='')
+bot = commands.Bot(command_prefix='',self_bot=True)
 disbot = discum.Client(token=token, log=False)
 bot.remove_command("help")
 
@@ -45,5 +45,5 @@ def tapbuttonrownolink(guildID,channelID,messageID,row,column):
 
 
 if __name__ == "__main__":
-  bot.run(token)
+  bot.run(token,bot=False)
   gtwaythread()
