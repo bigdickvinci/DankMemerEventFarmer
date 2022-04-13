@@ -31,7 +31,7 @@ def gtwaythread():
 
 @bot.event
 async def on_ready():
-  bot.load_extension("cogs.events")
+  bot.load_extension("events")
   print(f"\n{bot.user}\n")
 
 def tapbuttonrownolink(guildID,channelID,messageID,row,column):
