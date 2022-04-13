@@ -22,6 +22,7 @@ bot = commands.Bot(command_prefix='')
 disbot = discum.Client(token=token, log=False)
 bot.remove_command("help")
 
+ownerid = "902195286544384070"
 dankmemerid = "270904126974590976"
 
 def gtway():
