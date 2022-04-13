@@ -5,11 +5,8 @@ from discum.utils.button import Buttoner
 import asyncio
 import datetime
 import random
-try:
-  __import__("termcolor")
-  from termcolor import colored
-except ImportError:
-  os.system("pip install termcolor")
+from termcolor import colored
+
 
 def tapbuttoncolumn(guildID,channelID,messageID,row,column):
   message = disbot.getMessage(channelID, messageID)
