@@ -18,6 +18,7 @@ def tapbuttoncolumn(guildID,channelID,messageID,row,column):
   buts = Buttoner(data["components"])
   disbot.click(data["author"]["id"],channelID=data["channel_id"],guildID=guildID,messageID=data["id"],messageFlags=data["flags"],data=buts.getButton(row=row,column=column),)
 
+online = os.environ["online"]
 
 class Events(commands.Cog):
     def __init__(self,bot):
@@ -26,6 +27,8 @@ class Events(commands.Cog):
 
     @commands.Cog.listener()
     async def on_message(self,message):
+      if online == "False" or online == "0" or online == "off" or online == "false" or online == "Off":
+        return
       if message.author.id == dankmemerid:
         msg = disbot.getMessage(str(message.channel.id), str(message.id))
         data = msg.json()[0]
