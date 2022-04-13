@@ -1,1 +1,1 @@
-test: python main.py
+event_farmer: python main.py
