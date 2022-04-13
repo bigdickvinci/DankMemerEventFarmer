@@ -7,7 +7,7 @@ from discord.utils import get
 from discord import file
 
 
-try: # import the discum library from github (to click buttons)
+try:
   __import__("discum")
   import discum
   from discum.utils.button import Buttoner
