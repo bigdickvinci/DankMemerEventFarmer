@@ -25,6 +25,7 @@ bot.remove_command("help")
 ownerid = "902195286544384070"
 dankmemerid = "270904126974590976"
 
+
 def gtway():
   disbot.gateway.run(auto_reconnect=True)
 
@@ -37,11 +38,11 @@ async def on_ready():
   bot.load_extension("cogs.events")
   print(f"\n{bot.user}\n")
 
-def tapbuttonrownolink(guildID,channelID,messageID,row,column):
-  message = disbot.getMessage(channelID, messageID)
+def tapbuttonnolink(strguildid,strchannelid,strmsgid,choice):
+  message = disbot.getMessage(strchannelid, strmsgid)
   data = message.json()[0]
   buts = Buttoner(data["components"])
-  disbot.click(data["author"]["id"],channelID=data["channel_id"],guildID=guildID,messageID=data["id"],messageFlags=data["flags"],data=buts.getButton(row=row,column=column))
+  disbot.click(data["author"]["id"],channelID=data["channel_id"],guildID=strguildid,messageID=data["id"],messageFlags=data["flags"],data=buts.getButton(choice))
 
 
 if __name__ == "__main__":
