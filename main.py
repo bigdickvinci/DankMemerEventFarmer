@@ -22,6 +22,8 @@ bot = commands.Bot(command_prefix='')
 disbot = discum.Client(token=token, log=False)
 bot.remove_command("help")
 
+dankmemerid = "270904126974590976"
+
 def gtway():
   disbot.gateway.run(auto_reconnect=True)
 
