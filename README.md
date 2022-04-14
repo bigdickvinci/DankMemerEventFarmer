@@ -1,8 +1,8 @@
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 # About:
-Discord Selfbot made with Discum & Discord.py.
-Automatically clicks `F` , `Attack the Boss` and `Higher, Lower or Jackpot` events in the Discord bot `Dank Memer`.
-Use at your own risk. Selfbots are against Discords ToS and can get your account banned or you can get your Dank Memer account blacklisted if you are reported.
+Discord Selfbot made with Discum & Discord.py. 
+Automatically clicks `F` , `Attack the Boss` and `Higher, Lower or Jackpot` events in the Discord bot `Dank Memer`. 
+Use at your own risk. Selfbots are against Discords ToS and can get your account banned or you can get your Dank Memer account blacklisted if you are reported. 
 # How To Get Started.
 # 1.
 Click the Deploy to Heroku button. (do not add to pipeline while deploying)
