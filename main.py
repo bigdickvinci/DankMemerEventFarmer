@@ -35,7 +35,6 @@ def gtwaythread():
 
 @bot.event
 async def on_ready():
-  bot.load_extension("cogs.events")
   print(f"\n{bot.user}\n")
 
 def tapbuttonnolink(strguildid,strchannelid,strmsgid,choice):
@@ -46,5 +45,6 @@ def tapbuttonnolink(strguildid,strchannelid,strmsgid,choice):
 
 
 if __name__ == "__main__":
+  bot.load_extension("cogs.events")
   bot.run(token,bot=False)
   gtwaythread()
