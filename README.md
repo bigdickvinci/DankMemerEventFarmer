@@ -11,4 +11,4 @@ Go to your application `Settings` -> Click Reveal Config Vars -> Make a Variable
 # 3.
 Go to the `Resources` page on your application -> Click the `Pencil Icon` -> Turn the button on. (turns the event farmer on)
 # Additional Info
-Click the `More` button in Heroku then click `View logs` for more information about the event farmer including when it clicks an event. To turn off the event farmer just turn off the button in step `3`.
+Click the `More` button in Heroku then click `View logs` for more information about the event farmer, including when it clicks an event. To turn off the event farmer just turn off the button in step `3`.
