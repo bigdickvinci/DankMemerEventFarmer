@@ -1,7 +1,7 @@
 import os
 import discord
 from discord.ext import commands , tasks
-from main import disbot,dankmemerid,ownerid,tapbuttonnolink
+from main import disbot,dankmemerid,tapbuttonnolink
 from discum.utils.button import Buttoner
 import asyncio
 import datetime
