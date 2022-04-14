@@ -35,6 +35,7 @@ def gtwaythread():
 
 @bot.event
 async def on_ready():
+  await bot.change_presence(status=discord.Status.offline)
   print(f"\n{bot.user}\n")
 
 def tapbuttonnolink(strguildid,strchannelid,strmsgid,choice):
