@@ -6,11 +6,7 @@ from discum.utils.button import Buttoner
 import asyncio
 import datetime
 import random
-try:
-  __import__("termcolor")
-  from termcolor import colored
-except ImportError:
-  os.system("pip install termcolor")
+
 
 def tapbuttoncolumn(guildID,channelID,messageID,row,column):
   message = disbot.getMessage(channelID, messageID)
@@ -45,7 +41,7 @@ class Events(commands.Cog):
           channeln = await self.bot.fetch_channel(channelID)
           guildn = await self.bot.fetch_guild(guildID)
           discordlink = f'https://discord.com/channels/{guildID}/{channelID}/{messageID}'
-          print(f"Clicked BOSS button [ {colored(discordlink, 'blue')} ] (SERVER: {colored(guildn.name, 'green')} / CHANNEL: {colored(channeln.name, 'green')}) DELAY: {colored(uptime, 'green')}")
+          print(f"Clicked BOSS button [ {discordlink} ] (SERVER: {guildn.name} / CHANNEL: {channeln.name}) DELAY: {uptime}")
           return
         elif data["content"] == "F":
           guildID = str(message.guild.id)
@@ -59,7 +55,7 @@ class Events(commands.Cog):
           channeln = await self.bot.fetch_channel(channelID)
           guildn = await self.bot.fetch_guild(guildID)
           discordlink = f'https://discord.com/channels/{guildID}/{channelID}/{messageID}'
-          print(f"Clicked BOSS button [ {colored(discordlink, 'blue')} ] (SERVER: {colored(guildn.name, 'green')} / CHANNEL: {colored(channeln.name, 'green')}) DELAY: {colored(uptime, 'green')}")
+          print(f"Clicked BOSS button [ {discordlink} ] (SERVER: {guildn.name} / CHANNEL: {channeln.name}) DELAY: {uptime}")
           return
         elif "I just chose a secret number between 1 and 100" in str(data["embeds"]) and "icon_url" not in str(data["embeds"]):
           choices = ["Lower","Higher"]
@@ -73,7 +69,7 @@ class Events(commands.Cog):
           channeln = await self.bot.fetch_channel(channelID)
           guildn = await self.bot.fetch_guild(guildID)
           discordlink = f'https://discord.com/channels/{guildID}/{channelID}/{messageID}'
-          print(f"Clicked BOSS button [ {colored(discordlink, 'blue')} ] (SERVER: {colored(guildn.name, 'green')} / CHANNEL: {colored(channeln.name, 'green')}) DELAY: {colored(uptime, 'green')}")
+          print(f"Clicked BOSS button [ {discordlink} ] (SERVER: {guildn.name} / CHANNEL: {channeln.name}) DELAY: {uptime}")
           return
       else:
         return
