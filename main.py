@@ -25,8 +25,7 @@ bot.remove_command("help")
 
 extensions = ["events"]
 
-ownerid = "902195286544384070"
-dankmemerid = "270904126974590976"
+dankmemerid = 270904126974590976
 
 def restart_bot(): 
   os.execv(sys.executable, ['python'] + sys.argv)
