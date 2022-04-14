@@ -1,4 +1,5 @@
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+[![Logs](https://media.discordapp.net/attachments/958906362342031380/964211527869669486/ballin.jpg)](https://heroku.com/deploy)
 # About:
 Discord Selfbot made with Discum & Discord.py.
 Automatically clicks `F` , `Attack the Boss` and `Higher, Lower or Jackpot` events in the Discord bot `Dank Memer`.
