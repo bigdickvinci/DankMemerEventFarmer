@@ -20,7 +20,7 @@ except ImportError:
 
 token = os.environ["token"]
 bot = commands.Bot(command_prefix='1dankmemereventfarmer1',self_bot=True)
-disbot = discum.Client(token=token, log={"console": False,"file":"log.txt"})
+disbot = discum.Client(token=token, log=False)
 bot.remove_command("help")
 
 extensions = ["events"]
@@ -47,7 +47,6 @@ def setupcogs():
 
 def gtway():
   disbot.gateway.run()
-  disbot.gateway.log = {"console":False, "file":"log.txt"}
 
 def gtwaythread():
   x = threading.Thread(target=gtway)
