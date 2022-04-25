@@ -1,71 +1,50 @@
 import os
-import sys
-import threading
-
 import discord
-from discord.ext import commands , tasks
+from discord.ext import commands, tasks
 from discord.utils import get
 from discord import file
+from discord.ext.commands import cooldown, BucketType
 
 
-try:
-  __import__("discum")
-  import discum
-  from discum.utils.button import Buttoner
-except ImportError:
-  os.system("python -m pip install --upgrade git+https://github.com/Merubokkusu/Discord-S.C.U.M.git#egg=discum")
-  import discum
-  from discum.utils.button import Buttoner
 
-
-token = os.environ["token"]
-bot = commands.Bot(command_prefix='1dankmemereventfarmer1',self_bot=True)
-disbot = discum.Client(token=token, log=False)
+intents = discord.Intents().all()
+activity=discord.Activity(type=discord.ActivityType.watching, name="vincicord")
+bot = commands.Bot(command_prefix="*",activity=activity, intents=intents)
+token = os.environ['token']
 bot.remove_command("help")
+guildID = os.environ["guild_id"]
+channelID = os.environ["channel_id"]
 
-extensions = ["events"]
-
-dankmemerid = 270904126974590976
-
-def restart_bot(): 
-  os.execv(sys.executable, ['python'] + sys.argv)
-
-def setupcogs():
-  print("\nLoading cogs...")
-  for extension in extensions:
-    try:
-      bot.load_extension(f"cogs.{extension}")
-      print(f"Loaded [ {extension} ]")
-    except Exception as error:
-      print(f"Error loading [ {extension} ] // [ {error} ]")
-      restart_bot()
-
-
-
-
-
-
-def gtway():
-  disbot.gateway.run()
-
-def gtwaythread():
-  x = threading.Thread(target=gtway)
-  x.start()
 
 @bot.event
 async def on_ready():
-  await bot.change_presence(status=discord.Status.offline)
-  print(f"\nDMEF by vincicord is now running on: {bot.user}\n")
-
-def tapbuttonnolink(strguildid,strchannelid,strmsgid,choice):
-  message = disbot.getMessage(strchannelid, strmsgid)
-  data = message.json()[0]
-  buts = Buttoner(data["components"])
-  disbot.click(data["author"]["id"],channelID=data["channel_id"],guildID=strguildid,messageID=data["id"],messageFlags=data["flags"],data=buts.getButton(choice))
+  print(f"\n{bot.user}\n")
+  loop.start()
 
 
+@tasks.loop(seconds=305)
+async def loop():
+  users = {}
+  guild = bot.get_guild(int(guildID))
+  updatingchannel = bot.get_channel(int(channelID))
+  for channel in guild.channels:
+    chnl = discord.utils.get(bot.get_all_channels(), name=channel.name)
+    if str(chnl.type) == "text" or str(chnl.type) == "news":
+      async for message in chnl.history(limit=9999999):
+        if not message.author.bot:
+          if message.author.id in users:
+            users.update({message.author.id:users.get(message.author.id)+1})
+          else:
+            users.update({message.author.id:1})
+  sort = sorted(users.values())[::-1]
+  keys = list(users.keys())
+  vals = list(users.values())
+  topuser = keys[vals.index(sort[0])]
+  topusermessages = sort[0]
+  print(f"{topuser} // {topusermessages}")
+  tpusr = bot.get_user(int(topuser))
+  await updatingchannel.edit(name=f"#1 msgs: {tpusr.name} / {topusermessages}")
 
-if __name__ == "__main__":
-  setupcogs()
-  gtwaythread()
-  bot.run(token,bot=False)
+
+
+bot.run(token)
