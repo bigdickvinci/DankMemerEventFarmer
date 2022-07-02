@@ -23,6 +23,7 @@ class Events(commands.Cog):
     @commands.Cog.listener()
     async def on_message(self,message):
       if message.author.id == dankmemerid:
+        data = []
         msg = disbot.getMessage(str(message.channel.id), str(message.id))
         data = msg.json()[0]
         if "referenced_message" in str(data):
