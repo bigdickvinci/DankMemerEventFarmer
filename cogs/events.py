@@ -24,7 +24,7 @@ class Events(commands.Cog):
     async def on_message(self,message):
       if message.author.id == dankmemerid:
         msg = disbot.getMessage(str(message.channel.id), str(message.id))
-        data = msg.json()
+        data = msg.json()[0]
         if "referenced_message" in str(data):
           return
         timestamp = data["timestamp"]
