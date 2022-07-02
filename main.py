@@ -19,7 +19,7 @@ except ImportError:
 
 
 token = os.environ["token"]
-bot = commands.Bot(command_prefix='1dankmemereventfarmer1',self_bot=True)
+bot = commands.Bot(command_prefix='1dankmemereventfarmer1',status=discord.Status.offline,self_bot=True)
 disbot = discum.Client(token=token, log=False)
 bot.remove_command("help")
 
@@ -54,8 +54,7 @@ def gtwaythread():
 
 @bot.event
 async def on_ready():
-  await bot.change_presence(status=discord.Status.offline)
-  print(f"\nDMEF by vincicord is now running on: {bot.user}\n")
+  print(f"\nDMEF by vinci is now running on: {bot.user}\n")
 
 def tapbuttonnolink(strguildid,strchannelid,strmsgid,choice):
   message = disbot.getMessage(strchannelid, strmsgid)
