@@ -51,7 +51,7 @@ class Events(commands.Cog):
             discordlink = f'https://discord.com/channels/{guildID}/{channelID}/{messageID}'
             msg0 = disbot.getMessage(channelID, messageID)
             data0 = msg0.json()[0]
-            if "disabled" in str(data0) and str(data0["components"][0]["components"][0]["disabled"]) == "True"::
+            if "disabled" in str(data0) and str(data0["components"][0]["components"][0]["disabled"]) == "True":
               print(f"Clicked BOSS button {countr} times [ {discordlink} ] (SERVER: {guildn.name} / CHANNEL: {channeln.name}) DELAY(Last Click): {uptime}")
               break
             else:
