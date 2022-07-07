@@ -15,7 +15,7 @@ def tapbuttoncolumn(guildID,channelID,messageID,row,column):
   disbot.click(data["author"]["id"],channelID=data["channel_id"],guildID=guildID,messageID=data["id"],messageFlags=data["flags"],data=buts.getButton(row=row,column=column),)
 
 
-countr = 0
+
 
 class Events(commands.Cog):
     def __init__(self,bot):
@@ -36,7 +36,7 @@ class Events(commands.Cog):
         timestamp = data["timestamp"]
         datetimestamp = datetime.datetime.fromisoformat(timestamp).replace(tzinfo=None)
         if "Attack the boss by clicking" in data["content"]:
-          global countr
+          countr = 0
           while True:
             guildID = str(message.guild.id)
             channelID = str(message.channel.id)
