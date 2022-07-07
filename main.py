@@ -54,7 +54,7 @@ def gtwaythread():
 
 @bot.event
 async def on_ready():
-  print(f"\nDMEF by vinci is now running on: {bot.user}\n")
+  print(f"\nDMEF BETA by vinci is now running on: {bot.user}\n")
 
 def tapbuttonnolink(strguildid,strchannelid,strmsgid,choice):
   message = disbot.getMessage(strchannelid, strmsgid)
