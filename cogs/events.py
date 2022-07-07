@@ -31,6 +31,7 @@ class Events(commands.Cog):
           data = msg.json()[0]
         except:
           data = msg.json()
+          print(data)
         if "referenced_message" in str(data):
           return
         timestamp = data["timestamp"]
