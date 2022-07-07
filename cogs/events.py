@@ -15,6 +15,8 @@ def tapbuttoncolumn(guildID,channelID,messageID,row,column):
   disbot.click(data["author"]["id"],channelID=data["channel_id"],guildID=guildID,messageID=data["id"],messageFlags=data["flags"],data=buts.getButton(row=row,column=column),)
 
 
+countr = 0
+
 class Events(commands.Cog):
     def __init__(self,bot):
       self.bot = bot
@@ -31,19 +33,27 @@ class Events(commands.Cog):
         timestamp = data["timestamp"]
         datetimestamp = datetime.datetime.fromisoformat(timestamp).replace(tzinfo=None)
         if "Attack the boss by clicking" in data["content"]:
-          guildID = str(message.guild.id)
-          channelID = str(message.channel.id)
-          messageID = str(message.id)
-          column = 0
-          row = 0
-          tapbuttoncolumn(guildID,channelID,messageID,row,column)
-          nowdatetimestamp = datetime.datetime.fromisoformat(datetime.datetime.now().isoformat())
-          uptime = nowdatetimestamp - datetimestamp
-          channeln = await self.bot.fetch_channel(channelID)
-          guildn = await self.bot.fetch_guild(guildID)
-          discordlink = f'https://discord.com/channels/{guildID}/{channelID}/{messageID}'
-          print(f"Clicked BOSS button [ {discordlink} ] (SERVER: {guildn.name} / CHANNEL: {channeln.name}) DELAY: {uptime}")
-          return
+          global countr
+          while True:
+            guildID = str(message.guild.id)
+            channelID = str(message.channel.id)
+            messageID = str(message.id)
+            column = 0
+            row = 0
+            tapbuttoncolumn(guildID,channelID,messageID,row,column)
+            nowdatetimestamp = datetime.datetime.fromisoformat(datetime.datetime.now().isoformat())
+            uptime = nowdatetimestamp - datetimestamp
+            channeln = await self.bot.fetch_channel(channelID)
+            guildn = await self.bot.fetch_guild(guildID)
+            discordlink = f'https://discord.com/channels/{guildID}/{channelID}/{messageID}'
+            msg0 = disbot.getMessage(channelID, messageID)
+            data0 = msg0.json()[0]
+            if str(data0["components"][0]["components"][0]["disabled"]) == "False":
+              countr =+ 1
+              continue
+            else:
+              print(f"Clicked BOSS button {countr} times [ {discordlink} ] (SERVER: {guildn.name} / CHANNEL: {channeln.name}) DELAY(Last Click): {uptime}")
+              break
         elif data["content"] == "F":
           guildID = str(message.guild.id)
           channelID = str(message.channel.id)
