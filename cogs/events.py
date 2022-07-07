@@ -53,7 +53,7 @@ class Events(commands.Cog):
               continue
             else:
               print(f"Clicked BOSS button {countr} times [ {discordlink} ] (SERVER: {guildn.name} / CHANNEL: {channeln.name}) DELAY(Last Click): {uptime}")
-              break
+              return
         elif data["content"] == "F":
           guildID = str(message.guild.id)
           channelID = str(message.channel.id)
