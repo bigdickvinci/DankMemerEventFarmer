@@ -55,7 +55,7 @@ class Events(commands.Cog):
               print(f"Clicked BOSS button {countr} times [ {discordlink} ] (SERVER: {guildn.name} / CHANNEL: {channeln.name}) DELAY(Last Click): {uptime}")
               break
             else:
-              countr =+ 1
+              countr += 1
               continue
           return
         elif data["content"] == "F":
