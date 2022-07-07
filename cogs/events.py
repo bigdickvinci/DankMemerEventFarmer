@@ -57,6 +57,7 @@ class Events(commands.Cog):
             else:
               countr =+ 1
               continue
+          return
         elif data["content"] == "F":
           guildID = str(message.guild.id)
           channelID = str(message.channel.id)
