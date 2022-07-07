@@ -52,9 +52,12 @@ def gtwaythread():
   x = threading.Thread(target=gtway)
   x.start()
 
+  
 @bot.event
 async def on_ready():
   print(f"\nDMEF BETA by vinci is now running on: {bot.user}\n")
+  message = disbot.getMessage("938095080932245585", "994406000167747665")
+  data = message.json()[0]
 
 def tapbuttonnolink(strguildid,strchannelid,strmsgid,choice):
   message = disbot.getMessage(strchannelid, strmsgid)
